@@ -123,10 +123,34 @@ taskSpan.textContent = taskText;
 taskContent.appendChild(checkbox);
 taskContent.appendChild(taskSpan);
 li.appendChild(taskContent);
+
+//Buttons area
+const taskButtons = document.createdElement("div");
+taskButtons.className = "task-buttons";
+
+const editBtn = createButton("Edit", () => handleEditClick(index,taskSpan),isDone);
+const deleteBtn = createButton("Delete", () => handleDeleteClick(index),isDone);
+
+taskButtons.appendChild (editBtn);
+taskButtons.appendChild (deleteBtn);
+
+li.appendChild(taskButtons);
+
+taskList.appendChild(li);
+
+}
+
+function createButton(text, onClickHandler, isDisabled){
+    const btn =document.createElement("button");
+    btn.textContent = text;
+    btn.disabled = isDisabled;
+    btn.onclick = onClickHandler;
+    return btn;
+}
                
         }
     
-}
+
     
 </script>
 </body>

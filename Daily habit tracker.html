@@ -149,6 +149,12 @@ function createButton(text, onClickHandler, isDisabled){
 }
                
         }
+    function handleCheckChange(index) {
+        tasksData[index].done = true;
+        saveTasks();
+        renderTasks();
+        updateProgress();
+    }
     
 
     

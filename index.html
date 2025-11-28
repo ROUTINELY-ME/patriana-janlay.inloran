@@ -156,8 +156,18 @@ function createButton(text, onClickHandler, isDisabled){
         updateProgress();
     }
     
+{
+    // Reset all task to not done for the next day
+    taskData = taskData.map(task => ({
+        text: task.text,
+        done: false 
+    }));
 
-    
+    saveTasks();
+    renderTasks();  
+    updateProgress();
+}
 </script>
+
 </body>
 </html>
